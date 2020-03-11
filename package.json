@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "@bnguyensn",
+  "license": "MIT",
   "dependencies": {
-    "@google-cloud/firestore": "^3.6.0",
-    "@types/node-fetch": "^2.5.5",
     "firebase-admin": "^8.9.2",
-    "firebase-functions": "^3.3.0",
-    "node-fetch": "^2.6.0"
+    "firebase-functions": "^3.3.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
