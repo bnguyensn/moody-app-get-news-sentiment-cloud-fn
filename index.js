@@ -13,17 +13,24 @@ const initialize = () => {
       // We're running the app in our own Node.js environment. This is mainly
       // used when we're testing the application out.
 
-      admin.initializeApp({
-        credential: admin.credential.applicationDefault(),
-      });
+      try {
+        admin.app();
+      } catch (err) {
+        admin.initializeApp({
+          credential: admin.credential.applicationDefault(),
+        });
 
-      db = admin.firestore();
+        db = admin.firestore();
+      }
     } else {
       // We assume that the app is being run as a GCP cloud function.
 
-      admin.initializeApp(functions.config().firebase);
-
-      db = admin.firestore();
+      try {
+        admin.app();
+      } catch (err) {
+        admin.initializeApp(functions.config().firebase);
+        db = admin.firestore();
+      }
     }
   } catch (err) {
     throw err;
